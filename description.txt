@@ -1,0 +1,1 @@
+This project view is used for practicing pyspark related examples

@@ -1,0 +1,28 @@
+{
+  "result": [
+    {
+      "package_name": "package_TEST",
+      "package_id": "1",
+      "maintained_by": "pravash",
+      "package_current_version": "0.1.0",
+      "package_history_version": {
+        "first_version": "0.0.1",
+        "second_version": "0.0.5",
+        "third_version": "0.0.9"
+      },
+      "created_date": "2021-07-14",
+      "package_uses": [
+        {
+          "id": "1",
+          "company": "ABC",
+          "location": "location1"
+        },
+        {
+          "id": "2",
+          "company": "XYZ",
+          "location": "location2"
+        }
+    ]
+    }
+  ]
+}
