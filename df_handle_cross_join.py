@@ -16,6 +16,7 @@ df = spark.createDataFrame(
      ("id", "an_array", "a_map"))
 df.select("id", "an_array", "a_map")
 df.show()
+
 df = df.withColumn("x", F.json_tuple(df.a_map, 'x')) \
         .withColumn("y", F.json_tuple(df.a_map, 'y'))
 df.show(truncate=False)
