@@ -32,12 +32,12 @@ df1 = spark.createDataFrame(data=df1_ref, schema=['Name', 'Sector'])
 # df1.show()
 
 df2_ref = [
-        ('3D', 0, 0, 0, 0, 1, 0), ('Accounting', 0, 0, 0, 0, 0, 1),
-        ('Wireless', 0, 0, 1, 0, 0, 0)]
+    ('3D', 0, 0, 0, 0, 1, 0), ('Accounting', 0, 0, 0, 0, 0, 1),
+    ('Wireless', 0, 0, 1, 0, 0, 0)]
 df2 = spark.createDataFrame(data=df2_ref, schema=['Name', 'Automotive&Sports',
-                                                              'Cleantech', 'Entertainment',
-                                                              'Health', 'Manufacturing',
-                                                              'Finance'])
+                                                  'Cleantech', 'Entertainment',
+                                                  'Health', 'Manufacturing',
+                                                  'Finance'])
 # df2.show()
 
 df3 = df1.join(df2, df1.Sector == df2.Name, 'inner') \
@@ -47,4 +47,48 @@ for col_name in df3.columns:
     if (df3.filter(col(col_name) == 0).count() == df3.select(col(col_name)).count()):
         df3 = df3.drop(col_name)
 
-df3.show()
+# df3.show()
+
+data1 = [("Jhon", ["USA", "MX", "USW", "UK"], {'23': 'USA', '34': 'IND', '56': 'RSA'}),
+         ("Joe", ["IND", "AF", "YR", "QW"], {'23': 'USA', '34': 'IND', '56': 'RSA'})]
+data_frame = spark.createDataFrame(data=data1, schema=['name', 'subjectandID'])
+
+df2 = data_frame.select(data_frame.name, explode(data_frame.subjectandID))
+
+
+from pyspark.sql.window import Window
+from pyspark.sql.functions import row_number
+
+data1 = (("Bob", "IT", 4500), ("Maria", "IT", 4600), ("Maria", "HR", 4500),
+         ("James", "IT", 4500), ("Sam", "HR", 3300), ("Jen", "HR", 3900),
+         ("Jeff", "Marketing", 4500), ("Anand", "Marketing", 2000))
+col = ["Name", "MBA_Stream", "SEM_MARKS"]
+b = spark.createDataFrame(data1, col)
+w = Window.partitionBy("MBA_Stream").orderBy("Name")
+b.withColumn("Windowfunc_row", row_number().over(w))
+
+from pyspark.sql.functions import rank
+
+b.withColumn("Window_Rank", rank().over(w))
+
+data1 = [{'Name': 'Jhon', 'Sal': 25000, 'Add': 'USA'}, {'Name': 'Joe', 'Sal': 30000, 'Add': 'USA'},
+         {'Name': 'Tina', 'Sal': 22000, 'Add': 'IND'}, {'Name': 'Jhon', 'Sal': 15000, 'Add': 'USA'}]
+a = spark.sparkContext.parallelize(data1)
+b = a.toDF()
+# b.sort("Name", "Sal").show()
+# b.sort(col('Name').desc(), c
+# ol('Sal').desc())
+
+dfwithmax1 = b.groupBy("Add").agg(
+    max("Sal").alias("salary"),
+        first("Name").alias("employee_name"))
+# dfwithmax1.show()
+
+df_col1 = dfwithmax1.repartition(2)
+# print(df_col1.rdd.glom().collect())
+# print(df_col1.rdd.getNumPartitions())
+df_col = dfwithmax1.coalesce(2)
+# print(df_col.rdd.glom().collect())
+# print(df_col.rdd.getNumPartitions())
+
+
