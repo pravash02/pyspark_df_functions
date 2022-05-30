@@ -76,7 +76,7 @@ data1 = [{'Name': 'Jhon', 'Sal': 25000, 'Add': 'USA'}, {'Name': 'Joe', 'Sal': 30
 a = spark.sparkContext.parallelize(data1)
 b = a.toDF()
 # b.sort("Name", "Sal").show()
-# b.sort(col('Name').desc(), c
+# b.sort(col('Name').desc()
 # ol('Sal').desc())
 
 dfwithmax1 = b.groupBy("Add").agg(

@@ -1,3 +1,5 @@
+# spark-submit json_file_handling/handle_json_in_column.py
+
 from pyspark.sql import SparkSession
 from pyspark.sql import SQLContext
 from pyspark.sql import functions as F
@@ -13,8 +15,8 @@ sqlContext = SQLContext(sc)
 
 ### handling single json data
 df = spark.createDataFrame(
-     [(1, ["foo1", "bar1"], '''{"x": 1.0, "y": 2.0}'''),
-      (2, ["foo2", "bar2"], '''{"x": 1.0, "y": 2.0}''')],
+     [(1, ["foo1", "bar1"], '''{"x": 1.0, "y": 3.0}'''),
+      (2, ["foo2", "bar2"], '''{"x": 2.0, "y": 4.0}''')],
      ("id", "an_array", "a_map"))
 
 df.select("id", "an_array", "a_map")

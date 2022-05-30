@@ -1,0 +1,31 @@
+
+{
+  "H":[
+    {"name":"filler_1", "delimiter":"\n", "type":"string"},
+    {"name":"file_title", "delimiter":"|", "type":"string"},
+    {"name":"file_date", "delimiter":"|", "type":"string"}
+  ],
+  "T":[
+    {"name":"filler_2", "delimiter":"\n", "type":"string"},
+    {"name":"total_logical_records", "delimiter":"|", "type":"string"},
+    {"name":"rec_cnt_head_trail", "delimiter":"|", "type":"string"}
+  ],
+  "D":[
+    {"name":"filler_3", "delimiter":"\n", "type":"string"},
+    {"name":"run_id", "delimiter":"|", "type":"string"},
+    {"name":"adf_job_id", "delimiter":"|", "type":"string"},
+    {"name":"rov_dttime","delimiter":"|", "type":"string"},
+    {"name":"prnt_strem", "delimiter":"|", "type":"string"},
+    {"name":"orgnl_stmt_ent", "delimiter":"|", "type":"string"},
+    {"name":"prnt_job_id", "delimiter":"|", "type":"string"},
+    {"name":"prnt_site", "delimiter":"|", "type":"string"},
+    {"name":"actual_statement_count", "delimiter":"|", "type":"string"},
+    {"name":"rprnt_ind", "delimiter":"|", "type":"string"},
+    {"name":"ongnl_prnt_job_id", "delimiter":"|", "type":"string"},
+    {"name":"dspch_dttime", "delimiter":"|", "type":"string"},
+    {"name":"job_doc_id", "delimiter":"|", "type":"string"},
+    {"name":"usid", "delimiter":"|", "type":"string"},
+    {"name":"phys_pg_cnt", "delimiter":"|", "type":"string"},
+    {"name":"logic_pg_cnt", "delimiter":"|", "type":"string"}
+  ]
+}

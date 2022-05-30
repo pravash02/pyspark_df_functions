@@ -1,0 +1,21 @@
+{
+  "type" : "record",
+  "name": "topLevelRecord",
+  "fields":[
+    {"name":"run_id", "type":["string", "null"]},
+    {"name":"adf-job_id", "type":["string", "null"]},
+    {"name":"rev_dttime", "type":["string", "null"]},
+    {"name":"prat-_strem", "type":["string", "null"]},
+    {"name":"orgnl_stmt_ent", "type":["string", "null"]},
+    {"name":"prnt-job_id", "type":["string", "null"]},
+    {"name":"Ront-site", "type":["string", "null"]},
+    {"name":"actual_statement_count", "type":["string", "null"]},
+    {"name":"perat_ind", "type":["string", "null"]},
+    {"name":"orant_prat_job_id", "type":["string", "null"]},
+    {"name":"dspch-dttime", "type":["string", "null"]},
+    {"name":"job_doc_id", "type":["string", "null"]},
+    {"name":"usid", "type":["string", "null"]},
+    {"name":"phys_pg_ent", "type":["string", "null"]},
+    {"name":"Logic_pg_cnt", "type":["string", "null"]}
+  ]
+}

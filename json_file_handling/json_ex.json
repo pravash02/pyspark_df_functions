@@ -11,7 +11,7 @@
         "third_version": "0.0.9"
       },
       "created_date": "2021-07-14",
-      "package_uses": [
+      "package_user": [
         {
           "id": "1",
           "company": "ABC",
@@ -20,6 +20,30 @@
         {
           "id": "2",
           "company": "XYZ",
+          "location": "location2"
+        }
+    ]
+    },
+    {
+      "package_name": "package_TEST_2",
+      "package_id": "2",
+      "maintained_by": "pupun",
+      "package_current_version": "0.1.1",
+      "package_history_version": {
+        "first_version": "0.0.5",
+        "second_version": "0.0.10",
+        "third_version": "0.0.15"
+      },
+      "created_date": "2021-08-14",
+      "package_user": [
+        {
+          "id": "1",
+          "company": "EFG",
+          "location": "location1"
+        },
+        {
+          "id": "2",
+          "company": "QWE",
           "location": "location2"
         }
     ]

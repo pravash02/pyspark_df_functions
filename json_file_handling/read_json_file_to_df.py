@@ -1,3 +1,5 @@
+# spark-submit json_file_handling/read_json_file_to_df.py
+
 from pyspark.sql import SparkSession
 from pyspark.sql import SQLContext
 from pyspark.sql import functions as F
@@ -12,12 +14,15 @@ sqlContext = SQLContext(sc)
 
 ### Reading json file
 json_data = sqlContext.read.option("multiline", "true") \
-    .json('pyspark_project/json_file_handling/json_ex.json')
+    .json('json_file_handling/json_ex.json')
 json_data.printSchema()
+print(json_data.schema.fields)
 complex_fields = dict([(field.name, field.dataType)
                        for field in json_data.schema.fields
                        if isinstance(field.dataType, T.ArrayType) or
                        isinstance(field.dataType, T.StructType)])
+print(complex_fields)
+print(complex_fields.keys())
 qualify = list(complex_fields.keys())[0] + '_'
 
 # {'results': ArrayType(StructType(List(StructField(a,LongType,true),
